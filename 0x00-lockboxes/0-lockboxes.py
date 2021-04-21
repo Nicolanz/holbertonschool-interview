@@ -1,7 +1,16 @@
 #!/usr/bin/python3
+"""module containing canUnlockAll(boxes) function"""
 
 
 def canUnlockAll(boxes):
+    """Funtion that determines if all boxes can be opened
+
+    Args:
+        boxes ([list]): is a list of lists of ints
+
+    Returns:
+        [bool]: [True if all boxes can be opened or false if not]
+    """
     pos = 0
     newList = []
     for i in boxes:
