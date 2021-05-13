@@ -11,21 +11,13 @@ def checkIfPrime(n):
     Returns:
         [bool]: [True if prime or false if false]
     """
-    if (n <= 1):
-        return False
-    if (n <= 3):
+    if n > 1:
+        for i in range(2, n):
+            if (n % i) == 0:
+                return False
         return True
-
-    if (n % 2 == 0 or n % 3 == 0):
+    else:
         return False
-
-    i = 5
-    while(i * i <= n):
-        if (n % i == 0 or n % (i + 2) == 0):
-            return False
-        i = i + 6
-
-    return True
 
 
 def minOperations(n):
@@ -39,14 +31,14 @@ def minOperations(n):
     """
     if type(n) != int or n <= 0:
         return 0
-    elif checkIfPrime(n) is True:
+    elif (checkIfPrime(n) is True):
         return n
 
     primeList = []
     result = 0
     number = n
 
-    for i in range(2, n):
+    for i in range(0, n):
         if checkIfPrime(i) is True:
             primeList.append(i)
 
