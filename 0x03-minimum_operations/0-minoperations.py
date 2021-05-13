@@ -29,7 +29,7 @@ def minOperations(n):
     Returns:
         [int]: [Number of operations]
     """
-    if type(n) != int or n <= 0:
+    if type(n) != int and n <= 1:
         return 0
     elif (checkIfPrime(n) is True):
         return n
