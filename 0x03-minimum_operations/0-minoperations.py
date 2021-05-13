@@ -12,12 +12,9 @@ def minOperations(n):
     result = 0
     newList = []
 
-    try:
-        n = int(n)
-    except:
+    if isinstance(n, (int, float)) is False:
         return result
-
-    if n <= 1:
+    elif n <= 1:
         return result
 
     for i in range(2, n + 1):
