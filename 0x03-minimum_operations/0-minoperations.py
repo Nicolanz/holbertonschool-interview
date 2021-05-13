@@ -12,7 +12,7 @@ def minOperations(n):
     result = 0
     newList = []
 
-    if isinstance(n, (int, float, complex)) is False:
+    if isinstance(n, (int, float)) is False:
         return result
     elif n <= 1:
         return result
@@ -25,8 +25,8 @@ def minOperations(n):
 
     while (n != 1):
         if n % newList[i] == 0:
-            n = n / newList[i]
+            n = n // newList[i]
             result += newList[i]
         else:
             i = i + 1
-    return result
+    return int(result)
