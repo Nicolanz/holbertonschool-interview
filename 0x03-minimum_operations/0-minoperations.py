@@ -36,7 +36,7 @@ def minOperations(n):
     primeList = []
     result = 0
 
-    if n <= 1:
+    if type(n) is not int and n <= 1:
         return 0
     elif checkIfPrime(n) is True:
         return n
