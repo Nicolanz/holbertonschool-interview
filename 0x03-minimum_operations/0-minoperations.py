@@ -12,6 +12,11 @@ def minOperations(n):
     result = 0
     newList = []
 
+    try:
+        n = int(n)
+    except:
+        return result
+
     if n <= 1:
         return result
 
@@ -19,9 +24,10 @@ def minOperations(n):
         if n % i == 0:
             newList.append(i)
 
+    print(newList)
     i = 0
 
-    while (n > 1):
+    while (n != 1):
         if n % newList[i] == 0:
             n = n / newList[i]
             result += newList[i]
