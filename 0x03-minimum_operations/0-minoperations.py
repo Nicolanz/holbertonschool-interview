@@ -12,7 +12,7 @@ def minOperations(n):
     result = 0
     newList = []
 
-    if type(n) is not int or n <= 1:
+    if n <= 1:
         return 0
 
     for i in range(2, n + 1):
@@ -23,7 +23,7 @@ def minOperations(n):
 
     while (n != 1):
         if n % newList[i] == 0:
-            n = n // newList[i]
+            n = n / newList[i]
             result += newList[i]
         else:
             i = i + 1
