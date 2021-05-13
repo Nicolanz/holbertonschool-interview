@@ -12,7 +12,7 @@ def minOperations(n):
     result = 0
     newList = []
 
-    if isinstance(n, (int, float)) is False:
+    if isinstance(n, (int, float, complex)) is False:
         return result
     elif n <= 1:
         return result
