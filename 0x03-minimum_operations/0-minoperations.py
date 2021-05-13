@@ -23,7 +23,7 @@ def minOperations(n):
 
     while (n != 1):
         if n % newList[i] == 0:
-            n = n / newList[i]
+            n = n // newList[i]
             result += newList[i]
         else:
             i = i + 1
