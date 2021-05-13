@@ -29,39 +29,33 @@ def checkIfPrime(n):
 
 
 def minOperations(n):
-    """Gets the minimum of operations
+    """Funtions tp get the min needed operations to get a result
 
     Args:
-        n ([int]): [number to get the num of operations]
+        n ([int]): [Number to evaluate]
 
     Returns:
-        [int]: [Number of min oper]
+        [int]: [Number of operations]
     """
-    minDivisor = 0
-    maxDivisor = 0
-
-    if (n <= 0 or type(n) != int):
+    if type(n) != int or n <= 0:
         return 0
-    elif (checkIfPrime(n) is True):
+    elif checkIfPrime(n) is True:
         return n
 
+    primeList = []
+    result = 0
+    number = n
+
     for i in range(2, n):
-        if (n % i == 0):
-            minDivisor = i
-            break
-    for j in range(n - 1, 1, -1):
-        if (n % j == 0):
-            maxDivisor = j
-            break
+        if checkIfPrime(i) is True:
+            primeList.append(i)
 
-    for z in range(1, 1000):
-        if (n == 2**z):
-            return 2*z
+    i = 0
 
-    if (minDivisor == maxDivisor):
-        return int(minDivisor + n / minDivisor)
-    else:
-        if (checkIfPrime(maxDivisor) is True):
-            return int(n / maxDivisor + maxDivisor)
-        else:
-            return int(minDivisor + maxDivisor/minDivisor + n/maxDivisor)
+    while number != 1:
+        if number % primeList[i] != 0:
+            i = i + 1
+        if number % primeList[i] == 0:
+            number = number // primeList[i]
+            result = result + primeList[i]
+    return result
