@@ -12,14 +12,15 @@ def minOperations(n):
     result = 0
     newList = []
 
-    if n <= 1:
+    if isinstance(n, (int, float)) is False:
+        return result
+    elif n <= 1:
         return result
 
     for i in range(2, n + 1):
         if n % i == 0:
             newList.append(i)
 
-    print(newList)
     i = 0
 
     while (n != 1):
