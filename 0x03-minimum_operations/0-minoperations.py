@@ -45,9 +45,9 @@ def minOperations(n):
     i = 0
 
     while number != 1:
-        if number % primeList[i] != 0:
-            i = i + 1
         if number % primeList[i] == 0:
             number = number // primeList[i]
             result = result + primeList[i]
+        if number % primeList[i] != 0:
+            i = i + 1
     return result
