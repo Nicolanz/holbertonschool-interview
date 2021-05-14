@@ -3,7 +3,7 @@
 
 
 def minOperations(n):
-    """Funtion t get the min required operations to get a result
+    """Funtion to calculate the min required operations to get a result
     Args:
         n ([int]): [Number to evaluate]
     Returns:
@@ -23,8 +23,8 @@ def minOperations(n):
 
     while (n != 1):
         if n % newList[i] == 0:
-            n = n // newList[i]
+            n = n / newList[i]
             result += newList[i]
         else:
-            i = i + 1
+            i += 1
     return result
