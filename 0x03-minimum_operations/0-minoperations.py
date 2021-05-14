@@ -10,21 +10,15 @@ def minOperations(n):
         [int]: [Number of operations]
     """
     result = 0
-    newList = []
+    i = 2
 
     if n <= 1:
         return result
 
-    for i in range(2, n + 1):
-        if n % i == 0:
-            newList.append(i)
-
-    i = 0
-
     while (n != 1):
-        if n % newList[i] == 0:
-            n = n / newList[i]
-            result += newList[i]
+        if n % i == 0:
+            n = n / i
+            result += i
         else:
             i += 1
     return result
