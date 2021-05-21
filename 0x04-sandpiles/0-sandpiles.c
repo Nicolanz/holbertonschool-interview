@@ -127,6 +127,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		{
 			printf("=\n");
 			print_grid(grid1);
+			subtractCentralCorners(grid1);
 			if (grid1[1][1] >= 4)
 			{
 				grid1[1][1] -= 4;
@@ -135,12 +136,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 				grid1[1][2] += 1;
 				grid1[2][1] += 1;
 			}
-			if (grid1[0][0] >= 4 || grid1[0][2] >= 4 || grid1[2][0]
-			    >= 4 || grid1[2][2] >= 4)
-				subtractCorners(grid1);
-			if (grid1[0][1] >= 4 || grid1[1][0] >= 4 || grid1[1][2]
-			    >= 4 || grid1[2][1] >= 4)
-				subtractCentralCorners(grid1);
+			subtractCorners(grid1);
 			ans = ckeckGrid(grid1);
 		}
 	}
