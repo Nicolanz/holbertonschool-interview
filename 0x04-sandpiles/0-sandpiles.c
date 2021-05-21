@@ -38,6 +38,72 @@ bool ckeckGrid(int grid1[3][3])
 	return (true);
 }
 /**
+ * subtractCorners - Function to suctract corners
+ * @grid1: grid
+ */
+void subtractCorners(int grid1[3][3])
+{
+	if (grid1[0][0] >= 4)
+	{
+		grid1[0][0] -= 4;
+		grid1[0][1] += 1;
+		grid1[1][0] += 1;
+	}
+	if (grid1[0][2] >= 4)
+	{
+		grid1[0][2] -= 4;
+		grid1[0][1] += 1;
+		grid1[1][2] += 1;
+	}
+	if (grid1[2][0] >= 4)
+	{
+		grid1[2][0] -= 4;
+		grid1[1][0] += 1;
+		grid1[2][1] += 1;
+	}
+	if (grid1[2][2] >= 4)
+	{
+		grid1[2][2] -= 4;
+		grid1[1][2] += 1;
+		grid1[2][1] += 1;
+	}
+}
+/**
+ * subtractCentralCorners - Function to subtract central corners
+ * @grid1: grid1
+ */
+void subtractCentralCorners(int grid1[3][3])
+{
+	if (grid1[0][1] >= 4)
+	{
+		grid1[0][1] -= 4;
+		grid1[1][1] += 1;
+		grid1[0][0] += 1;
+		grid1[0][2] += 1;
+	}
+	if (grid1[1][0] >= 4)
+	{
+		grid1[1][0] -= 4;
+		grid1[1][1] += 1;
+		grid1[0][0] += 1;
+		grid1[2][0] += 1;
+	}
+	if (grid1[1][2] >= 4)
+	{
+		grid1[1][2] -= 4;
+		grid1[1][1] += 1;
+		grid1[0][2] += 1;
+		grid1[2][2] += 1;
+	}
+	if (grid1[2][1] >= 4)
+	{
+		grid1[2][1] -= 4;
+		grid1[1][1] += 1;
+		grid1[2][0] += 1;
+		grid1[2][2] += 1;
+	}
+}
+/**
  * sandpiles_sum -  Stable sums
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
@@ -54,75 +120,27 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			grid1[i][j] = grid1[i][j] + grid2[i][j];
 		}
 	}
-
 	ans = ckeckGrid(grid1);
-
 	if (ans == false)
 	{
 		while (ans != true)
 		{
 			printf("=\n");
 			print_grid(grid1);
-			if (grid1[0][0] >= 4)
-			{
-				grid1[0][0] = grid1[0][0] - 4;
-				grid1[0][1] = grid1[0][1] + 1;
-				grid1[1][0] = grid1[1][0] + 1;
-			}
-			if (grid1[0][1] >= 4)
-			{
-				grid1[0][1] = grid1[0][1] - 4;
-				grid1[0][0] = grid1[0][0] + 1;
-				grid1[0][2] = grid1[0][2] + 1;
-				grid1[1][1] = grid1[1][1] + 1;
-			}
-			if (grid1[0][2] >= 4)
-			{
-				grid1[0][2] = grid1[0][2] - 4;
-				grid1[0][1] = grid1[0][1] + 1;
-				grid1[1][2] = grid1[1][2] + 1;
-			}
-			if (grid1[1][0] >= 4)
-			{
-				grid1[1][0] = grid1[1][0] - 4;
-				grid1[0][0] = grid1[0][0] + 1;
-				grid1[2][0] = grid1[2][0] + 1;
-				grid1[1][1] = grid1[1][1] + 1;
-			}
 			if (grid1[1][1] >= 4)
 			{
-				grid1[1][1] = grid1[1][1] - 4;
-				grid1[0][1] = grid1[0][1] + 1;
-				grid1[1][0] = grid1[1][0] + 1;
-				grid1[1][2] = grid1[1][2] + 1;
-				grid1[2][1] = grid1[2][1] + 1;
+				grid1[1][1] -= 4;
+				grid1[0][1] += 1;
+				grid1[1][0] += 1;
+				grid1[1][2] += 1;
+				grid1[2][1] += 1;
 			}
-			if (grid1[1][2] >= 4)
-			{
-				grid1[1][2] = grid1[1][2] - 4;
-				grid1[0][2] = grid1[0][2] + 1;
-				grid1[1][1] = grid1[1][1] + 1;
-				grid1[2][2] = grid1[2][2] + 1;
-			}
-			if (grid1[2][0] >= 4)
-			{
-				grid1[2][0] = grid1[2][0] - 4;
-				grid1[1][0] = grid1[1][0] + 1;
-				grid1[2][1] = grid1[2][1] + 1;
-			}
-			if (grid1[2][1] >= 4)
-			{
-				grid1[2][1] = grid1[2][1] - 4;
-				grid1[1][1] = grid1[1][1] + 1;
-				grid1[2][0] = grid1[2][0] + 1;
-				grid1[2][2] = grid1[2][2] + 1;
-			}
-			if (grid1[2][2] >= 4)
-			{
-				grid1[2][2] = grid1[2][2] - 4;
-				grid1[1][2] = grid1[1][2] + 1;
-				grid1[2][1] = grid1[2][1] + 1;
-			}
+			if (grid1[0][0] >= 4 || grid1[0][2] >= 4 || grid1[2][0]
+			    >= 4 || grid1[2][2] >= 4)
+				subtractCorners(grid1);
+			if (grid1[0][1] >= 4 || grid1[1][0] >= 4 || grid1[1][2]
+			    >= 4 || grid1[2][1] >= 4)
+				subtractCentralCorners(grid1);
 			ans = ckeckGrid(grid1);
 		}
 	}
