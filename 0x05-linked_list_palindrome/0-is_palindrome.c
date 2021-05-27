@@ -21,8 +21,8 @@ int is_palindrome(listint_t **head)
 		i++;
 	}
 	tmp = *head;
-	j = i;
 	i--;
+	j = i;
 	while (i >= 0)
 	{
 		if (tmp->n != arr[i])
