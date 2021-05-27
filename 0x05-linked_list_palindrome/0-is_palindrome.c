@@ -14,10 +14,6 @@ int is_palindrome(listint_t **head)
 	{
 		return (1);
 	}
-	else if (tmp->next == NULL)
-	{
-		return (1);
-	}
 	while (tmp != NULL)
 	{
 		arr[i] = tmp->n;
