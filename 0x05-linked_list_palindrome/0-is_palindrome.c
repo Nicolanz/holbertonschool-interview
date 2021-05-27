@@ -28,6 +28,10 @@ int is_palindrome(listint_t **head)
 		{
 			return (0);
 		}
+		else if (tmp->next == NULL)
+		{
+			return (1);
+		}
 		tmp = tmp->next;
 		i--;
 	}
