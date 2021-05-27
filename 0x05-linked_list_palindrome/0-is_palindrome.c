@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = *head;
 	int i = 0;
-	int arr[10000];
+	int arr[100000];
 
 	if (*head == NULL)
 	{
@@ -31,7 +31,5 @@ int is_palindrome(listint_t **head)
 		tmp = tmp->next;
 		i--;
 	}
-	free_listint(tmp);
-	free_listint(*head);
 	return (1);
 }
