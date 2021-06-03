@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""Module that reads stdin line by line and computes
-"""
 
 from datetime import datetime
 import sys
@@ -8,14 +6,6 @@ import signal
 
 
 def validateData(x):
-    """Function to validate given data
-
-    Args:
-        x ([list]): [Listo of arguments]
-
-    Returns:
-        [bool]: [True id valid data or false if invalid data]
-    """
     for i in range(len(x)):
         if i == 0:
             tmp = x[i].split(".")
@@ -44,12 +34,6 @@ def validateData(x):
 
 
 def printResults(list, sum):
-    """Function to pront the results
-
-    Args:
-        list ([list]): [List of dara]
-        sum ([int]): [Sum of ]
-    """
     print("File size: {}".format(sum))
     list = sorted(list)
     for j in range(len(list)):
@@ -58,12 +42,6 @@ def printResults(list, sum):
 
 
 def sigint_handler(signal, frame):
-    """Function to capture ctrl+c keyboard
-
-    Args:
-        signal ([signal]): [Sign of keyboard]
-        frame ([handler]): [Sing to execute function]
-    """
     printResults(list, sum)
     sys.exit(0)
 
