@@ -1,0 +1,1 @@
+This is the folder to intended to resolve **0x06. Log Parsing** at Holberton School
