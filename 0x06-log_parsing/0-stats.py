@@ -3,8 +3,8 @@
 """
 import sys
 
-status_dict = {200:0, 301:0, 400:0, 401:0,
-                403:0, 404:0, 405:0, 500:0}
+status_dict = {200: 0, 301: 0, 400: 0, 401: 0,
+               403: 0, 404: 0, 405: 0, 500: 0}
 suma = 0
 counter = 0
 
@@ -13,7 +13,7 @@ try:
         tmp_list = line.split()
 
         if int(tmp_list[-2]) in status_dict.keys():
-           status_dict[int(tmp_list[-2])] += 1
+            status_dict[int(tmp_list[-2])] += 1
 
         counter += 1
         suma += int(tmp_list[-1])
