@@ -11,8 +11,6 @@ counter = 0
 try:
     for line in sys.stdin:
         tmp_list = line.split()
-        if(len(tmp_list) < 5):
-            continue
 
         if int(tmp_list[-2]) in status_list:
             new_list.append(int(tmp_list[- 2]))
