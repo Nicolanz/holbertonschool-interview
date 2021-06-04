@@ -30,6 +30,7 @@ try:
                         new_list[i],
                         new_list.count(new_list[i])
                         ))
+            i = 0
             counter = 0
 finally:
     new_list = sorted(new_list)
