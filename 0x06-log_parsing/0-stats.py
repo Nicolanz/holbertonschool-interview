@@ -35,8 +35,8 @@ finally:
     new_list = sorted(new_list)
     print("File size: {}".format(suma))
     for i in range(len(new_list)):
-                if new_list[i - 1] != new_list[i]:
-                    print("{}: {}".format(
-                        new_list[i],
-                        new_list.count(new_list[i])
-                        ))
+        if new_list[i - 1] != new_list[i]:
+            print("{}: {}".format(
+                new_list[i],
+                new_list.count(new_list[i])
+                ))
