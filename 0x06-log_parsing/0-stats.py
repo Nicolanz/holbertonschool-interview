@@ -31,6 +31,7 @@ try:
                         ))
             counter = 0
 except:
+    new_list = sorted(new_list)
     print("File size: {}".format(suma))
     for i in range(len(new_list)):
                 if new_list[i - 1] != new_list[i]:
