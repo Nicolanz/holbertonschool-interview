@@ -15,14 +15,15 @@ try:
         if(len(tmp_list) < 2):
             continue
 
-        suma += int(tmp_list[len(tmp_list) - 1])
+        if int(tmp_list[len(tmp_list) - 2]) in status_list:
+            new_list.append(int(tmp_list[len(tmp_list) - 2]))
+
         counter += 1
-        new_list.append(int(tmp_list[len(tmp_list) - 2]))
+        suma += int(tmp_list[len(tmp_list) - 1])
 
         if (counter == 10):
-            print("File size: {}".format(suma))
             new_list = sorted(new_list)
-
+            print("File size: {}".format(suma))
             for i in range(len(new_list)):
                 if new_list[i - 1] != new_list[i]:
                     print("{}: {}".format(
