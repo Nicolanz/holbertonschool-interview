@@ -1,46 +1,33 @@
 #include "palindrome.h"
 /**
- * countDigits - Function to count the digits of an ulint
- * @n: number to evaluate
- * Return: num of digits
+ * is_palindrome - Function to check if a number is palindrome
+ * @n: Number to be checked
  *
- */
-
-int countDigits(unsigned long n)
-{
-	unsigned long num = n;
-	int count = 0;
-
-	do {
-		count++;
-		num = num / 10;
-	} while (num != 0);
-
-	return (count);
-}
-/**
- * is_palindrome - Function to check if an ul int in palindrome
- * @n: number to evaluate
- *
- * Return: 1 if true or false if false
+ * Return: 1 if n is palindrome or 0 if not
  */
 int is_palindrome(unsigned long n)
 {
-	int num = countDigits(n);
+	int arr[100000];
 	int i = 0;
-	char str[num];
+	int b = 0;
+	int num = n;
 
-	num--;
-	sprintf(str, "%lu", n);
-
-	while (num != 0)
+	arr[i] = num % 10;
+	while (arr[i] != '\0')
 	{
-		if (str[i] != str[num])
+		i++;
+		num = num / 10;
+		arr[i] = num % 10;
+	}
+	i--;
+	while (i >= 0)
+	{
+		if (arr[i] != arr[b])
 		{
 			return (0);
 		}
-		i++;
-		num--;
+		b++;
+		i--;
 	}
 	return (1);
 }
