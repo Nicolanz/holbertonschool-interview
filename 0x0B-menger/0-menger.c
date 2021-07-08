@@ -45,7 +45,15 @@ void menger(int level)
 		{
 			for (j = 0; j < my_level; j++)
 			{
-				printf("#");
+				if ((i  >= my_level / 3 && i < (my_level - my_level / 3)) &&
+				    (j  >= my_level / 3 && j < (my_level - my_level / 3)))
+				{
+					printf(" ");
+				}
+				else
+				{
+					printf("#");
+				}
 			}
 			printf("\n");
 		}
