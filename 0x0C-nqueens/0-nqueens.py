@@ -20,4 +20,10 @@ else:
         print("N must be at least 4")
         sys.exit(1)
     else:
-        print([[]])
+        myList = []
+        j=0
+        for i in range(num):
+            newList = [i, j]
+            myList.append(newList)
+            j += 1
+        print(myList)
