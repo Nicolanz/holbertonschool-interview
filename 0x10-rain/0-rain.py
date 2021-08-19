@@ -3,8 +3,7 @@
 
 
 def rain(walls):
-    """Function calculate how many square units of water will\
-    be retained after it rains."""
+    """Function calculate the number of squares of water after a raining"""
 
     index = 0
     rain = 0
