@@ -1,0 +1,1 @@
+This is the folder to resolve the **0x18-merge_sort** at holberton school
