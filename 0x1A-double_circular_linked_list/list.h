@@ -2,6 +2,7 @@
 #define _LIST_H_
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct List - doubly linked list
@@ -22,4 +23,4 @@ typedef struct List
 List *add_node_end(List **list, char *str);
 List *add_node_begin(List **list, char *str);
 
-#endif /* _SEARCH_H_ */
+#endif /* _LIST_H_ */
