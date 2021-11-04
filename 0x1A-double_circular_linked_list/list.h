@@ -1,8 +1,8 @@
-#ifndef _LIST_H_
-#define _LIST_H_
+#ifndef LIST_H
+#define LIST_H
 
 #include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
 /**
  * struct List - doubly linked list
@@ -23,4 +23,4 @@ typedef struct List
 List *add_node_end(List **list, char *str);
 List *add_node_begin(List **list, char *str);
 
-#endif /* _LIST_H_ */
+#endif /* LIST_H */

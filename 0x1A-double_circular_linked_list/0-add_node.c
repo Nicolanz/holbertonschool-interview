@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "list.h"
 
 /**
  * add_node_end - Add node at the end of double circular linked list
