@@ -4,9 +4,9 @@
  * add_node_end - Add node at the end of double circular linked list
  * @list: Pointer to the head
  * @str: value of str
- *
  * Return: new linked node
  */
+
 List *add_node_end(List **list, char *str)
 {
 
@@ -38,9 +38,9 @@ List *add_node_end(List **list, char *str)
  * add_node_begin - Add node at the begin of double circular linked list
  * @list: Pointer to the head
  * @str: value of str
- *
  * Return: new linked node
  */
+
 List *add_node_begin(List **list, char *str)
 {
 
