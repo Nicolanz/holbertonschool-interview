@@ -1,10 +1,11 @@
 #include "list.h"
+#include <stdio.h>
 
 /**
- * add_node_end - Adds a new node to the end of a double circular linked list
- * @list: list to modify
- * @str: string to copy into the new node
- * Return: Address of the new node, or NULL on failure
+ * add_node_begin - Adds a new node to the end of a double circular linked list
+ * @list: double circular linked list
+ * @str: value of the node
+ * Return: new linked node
  */
 
 List *add_node_end(List **list, char *str)
@@ -12,36 +13,34 @@ List *add_node_end(List **list, char *str)
 	List *new;
 
 	new = malloc(sizeof(List));
-	if (new == NULL || !(list))
-	{
+	if (new == NULL)
 		return (NULL);
-	}
-	new->str = str;
 
-	if (*list == NULL)
+	if (!*list)
 	{
-		new->next = new;
+		new->str = str;
 		new->prev = new;
+		new->next = new;
 		*list = new;
-		return (new);
 	}
+	else
+	{
+		List *tmp = (*list)->prev;
 
-	List *last = (*list)->prev;
-
-	new->next = *list;
-	(*list)->prev = new;
-	new->prev = last;
-	last->next = new;
-
+		new->str = str;
+		new->next = *list;
+		(*list)->prev = new;
+		new->prev = tmp;
+		tmp->next = new;
+	}
 	return (new);
 }
 
 /**
- * add_node_begin - Adds a new node to the beginning of a
- *					double circular linked list
- * @list: list to modify
- * @str: string to copy into the new node
- * Return: Address of the new node, or NULL on failure
+ * add_node_begin - Adds a new node to the beg of a double circular linked list
+ * @list: double circular linked list
+ * @str: value of the node
+ * Return: new linked node
  */
 
 List *add_node_begin(List **list, char *str)
@@ -49,26 +48,26 @@ List *add_node_begin(List **list, char *str)
 	List *new;
 
 	new = malloc(sizeof(List));
-	if (new == NULL || !(list))
-	{
+	if (new == NULL)
 		return (NULL);
-	}
 
-	new->str = str;
-
-	if (*list == NULL)
+	if (!*list)
 	{
-		new->next = new->prev = new;
+		new->str = str;
+		new->prev = new;
+		new->next = new;
 		*list = new;
-		return (new);
 	}
+	else
+	{
+		List *tmp = (*list)->prev;
 
-	List *last = (*list)->prev;
-
-	new->next = *list;
-	new->prev = last;
-	last->next = (*list)->prev = new;
-	*list = new;
-
+		new->str = str;
+		new->next = *list;
+		new->prev = tmp;
+		tmp->next = new;
+		(*list)->prev = new;
+		*list = new;
+	}
 	return (new);
 }
