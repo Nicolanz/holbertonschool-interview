@@ -17,7 +17,7 @@ List *add_node_end(List **list, char *str)
 
 	if (!*list)
 	{
-		new->str = str;
+		new->str = strdup(str);
 		new->prev = new;
 		new->next = new;
 		*list = new;
@@ -52,7 +52,7 @@ List *add_node_begin(List **list, char *str)
 
 	if (!*list)
 	{
-		new->str = str;
+		new->str = strdup(str);
 		new->prev = new;
 		new->next = new;
 		*list = new;
