@@ -26,7 +26,7 @@ List *add_node_end(List **list, char *str)
 	{
 		List *tmp = (*list)->prev;
 
-		new->str = str;
+		new->str = strdup(str);
 		new->next = *list;
 		(*list)->prev = new;
 		new->prev = tmp;
@@ -61,7 +61,7 @@ List *add_node_begin(List **list, char *str)
 	{
 		List *tmp = (*list)->prev;
 
-		new->str = str;
+		new->str = strdup(str);
 		new->next = *list;
 		new->prev = tmp;
 		tmp->next = new;
