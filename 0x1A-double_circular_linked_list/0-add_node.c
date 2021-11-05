@@ -9,9 +9,9 @@
 
 List *add_node_end(List **list, char *str)
 {
+	List *new;
 
-	List *new = malloc(sizeof(List));
-
+	new = malloc(sizeof(List));
 	if (new == NULL || !(list))
 	{
 		return (NULL);
@@ -45,9 +45,9 @@ List *add_node_end(List **list, char *str)
 
 List *add_node_begin(List **list, char *str)
 {
+	List *new;
 
-	List *new = malloc(sizeof(List));
-
+	new = malloc(sizeof(List));
 	if (new == NULL || !(list))
 	{
 		return (NULL);
