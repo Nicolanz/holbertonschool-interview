@@ -1,10 +1,10 @@
 #include "list.h"
 
 /**
- * add_node_end - Add node at the end of double circular linked list
- * @list: Pointer to the head
- * @str: value of str
- * Return: new linked node
+ * add_node_end - Adds a new node to the end of a double circular linked list
+ * @list: list to modify
+ * @str: string to copy into the new node
+ * Return: Address of the new node, or NULL on failure
  */
 
 List *add_node_end(List **list, char *str)
@@ -37,10 +37,11 @@ List *add_node_end(List **list, char *str)
 }
 
 /**
- * add_node_begin - Add node at the begin of double circular linked list
- * @list: Pointer to the head
- * @str: value of str
- * Return: new linked node
+ * add_node_begin - Adds a new node to the beginning of a
+ *					double circular linked list
+ * @list: list to modify
+ * @str: string to copy into the new node
+ * Return: Address of the new node, or NULL on failure
  */
 
 List *add_node_begin(List **list, char *str)
