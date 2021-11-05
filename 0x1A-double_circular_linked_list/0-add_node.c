@@ -1,5 +1,4 @@
 #include "list.h"
-#include <stdio.h>
 
 /**
  * add_node_begin - Adds a new node to the end of a double circular linked list
@@ -13,7 +12,7 @@ List *add_node_end(List **list, char *str)
 	List *new;
 
 	new = malloc(sizeof(List));
-	if (new == NULL)
+	if (new == NULL || !list)
 		return (NULL);
 
 	if (!*list)
@@ -48,7 +47,7 @@ List *add_node_begin(List **list, char *str)
 	List *new;
 
 	new = malloc(sizeof(List));
-	if (new == NULL)
+	if (new == NULL || !list)
 		return (NULL);
 
 	if (!*list)
