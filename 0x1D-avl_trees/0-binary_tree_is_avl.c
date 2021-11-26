@@ -36,7 +36,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	int rh;
 
 	if (tree == NULL)
-		return (1);
+		return (0);
 	lh = height(tree->left);
 	rh = height(tree->right);
 	if (abs(lh - rh) <= 1 && AVL(tree->left) && AVL(tree->right))
