@@ -1,25 +1,23 @@
 #include "binary_trees.h"
 /**
  * max - max of 2 values
- * @x: x variable
- * @y: y variable
+ * @a: a variable
+ * @b: b variable
  * Return: max value
  */
-int max(int x, int y)
+int max(int a, int b)
 {
-	if (x >= y)
-		return (x);
-	return (y);
+	return ((a >= b) ? a : b);
 }
 
 /**
- * height - height the binary tree
- * @node: pointer to the node
+ * height - height of the tree
+ * @tree: pointer to the node
  * Return: heigh of the tree
  */
-int height(const binary_tree_t *node)
+int height(const binary_tree_t *tree)
 {
-	if (node == NULL)
+	if (tree == NULL)
 		return (0);
 	return (1 + max(height(node->left), height(node->right)));
 }
@@ -36,10 +34,11 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	int rh;
 
 	if (tree == NULL)
-		return (0);
+		return (1);
 	lh = height(tree->left);
 	rh = height(tree->right);
-	if (abs(lh - rh) <= 1 && AVL(tree->left) && AVL(tree->right))
+	if (abs(lh - rh) <= 1 && binary_tree_is_avl(tree->left) == 1 &&
+	    binary_tree_is_avl(tree->right) == 1)
 		return (1);
 	return (0);
 }
